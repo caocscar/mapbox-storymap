@@ -4,13 +4,13 @@ var config = {
     showMarkers: false,
     theme: 'light',
     alignment: 'left',
-    // title: 'Hello Nina',
-    // subtitle: 'Watcha doing?',
-    // byline: 'Draft by Alex',
-//    footer: 'Here is some footer text',
+    title: 'Hello Nina',
+    subtitle: 'Watcha doing?',
+    byline: 'Draft by Alex',
+    footer: 'Here is some footer text',
     chapters: [
         {
-            id: 'hex10',
+            id: 'seven',
             title: 'Section 1',
             image: '',
             description: 'In our environment, let’s say we have seven hexagonal neighborhoods. In these neighborhoods there are households with four people in each household. We have 25 total households – or 100 total people in our environment.',
@@ -21,7 +21,7 @@ var config = {
                 bearing: 0.00,
             },
             onChapterEnter: [{
-                layer: 'hexagons_10km_polygons-aw4rnj',
+                layer: 'hexagons_10km_seven-1iizx2',
                 opacity: .9
             }],
             onChapterExit: [],
