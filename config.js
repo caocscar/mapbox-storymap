@@ -7,7 +7,7 @@ let config = {
     title: 'Epidemiology Explained by Nina',
     subtitle: 'A great explanation of something complicated',
     byline: 'Draft by Alex',
-    footer: 'Here is some footer text',
+    footer: 'Visit our <a href="https://covidmapping.org">main site</a>',
     chapters: [
         {
             id: 'one',
