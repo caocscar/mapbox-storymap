@@ -206,14 +206,6 @@ if (footer.innerText.length > 0) {
 
 mapboxgl.accessToken = config.accessToken;
 
-const transformRequest = (url) => {
-    const hasQuery = url.indexOf("?") !== -1;	  
-    const suffix = hasQuery ? "&pluginName=journalismScrollytelling" : "?pluginName=journalismScrollytelling";	  
-    return {
-      url: url + suffix
-    }	  
-}
-
 var map = new mapboxgl.Map({
     container: 'map',
     style: config.style,
@@ -222,7 +214,6 @@ var map = new mapboxgl.Map({
     bearing: config.chapters[0].location.bearing,
     pitch: config.chapters[0].location.pitch,
     scrollZoom: false,
-    transformRequest: transformRequest
 });
 
 // markers
@@ -240,7 +231,7 @@ map.on("load", function() {
     .setup({
         step: '.step',
         offset: 0.35,
-        progress: true,
+        progress: false,
         debug: false,
     })
     .onStepEnter(response => {

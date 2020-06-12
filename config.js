@@ -1,5 +1,5 @@
 let config = {
-    style: 'mapbox://styles/caoa/ckbc6x8460xrw1ilpknhztwfg',
+    style: 'mapbox://styles/caoa/ckbcawzhd0c3g1ito303x9awr',
     accessToken: 'pk.eyJ1IjoiY2FvYSIsImEiOiJjazkxc2QyMTcwMHp4M2ZubnByeWwycjYwIn0.HMO_9ZdIJxTIXLl_zqyuHw',
     showMarkers: false,
     theme: 'light',
@@ -22,11 +22,11 @@ let config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'hexagons',
+                    layer: 'hexagons-10km-seven-1iizx2',
                     opacity: 0.3,
                 },
                 {
-                    layer: 'households',
+                    layer: 'households-71kqvv',
                     opacity: 1,
                 },
             ],
@@ -57,8 +57,6 @@ let config = {
             location: {
                 center: [-83.20, 42.45],
                 zoom: 11.8,
-                pitch: 0.00,
-                bearing: 0.00,
             },
             onChapterEnter: [
             ],
@@ -78,11 +76,11 @@ let config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'groceries',
+                    layer: 'groceries-7pytoy',
                     opacity: 0,
                 },
                 {
-                    layer: 'route',
+                    layer: 'route-3b7239',
                     opacity: 0,
                 },
             ],
@@ -102,11 +100,10 @@ let config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'groceries',
+                    layer: 'route-3b7239',
                     opacity: 1,
-                },
-                {
-                    layer: 'route',
+                },                {
+                    layer: 'groceries-7pytoy',
                     opacity: 1,
                 },
             ],
@@ -117,7 +114,7 @@ let config = {
             id: 'six',
             title: 'Section 6',
             image: '',
-            description: 'We can think of the houses falling into two groups: i) Closest to grocery store A (blue) ii) Closest to grocery store B (red). This allows us to construct interaction groups of individuals who are not connected by their neighborhood (hexagon) of residence, but connected by where they shop to get groceries. Now we can see that coding out which homes are closest to each grocery store, we get very different senses of who is "at-risk" from this initial infection in the center hexagon. Here we have 14 additional households that are "at-risk" based on shopping at the same grocery stores as these two houses with COVID.',            
+            description: 'We can think of the houses falling into two groups:<ul><li>Closest to grocery store A (blue)</li><li>Closest to grocery store B (red)</li></ul> This allows us to construct interaction groups of individuals who are not connected by their neighborhood (hexagon) of residence, but connected by where they shop to get groceries. Now we can see that coding out which homes are closest to each grocery store, we get very different senses of who is "at-risk" from this initial infection in the center hexagon. Here we have 14 additional households that are "at-risk" based on shopping at the same grocery stores as these two houses with COVID.',
             location: {
                 center: [-83.20, 42.45],
                 zoom: 10.9,
