@@ -29,6 +29,10 @@ let config = {
                     layer: 'households-71kqvv',
                     opacity: 1,
                 },
+                {
+                    layer: 'infected',
+                    opacity: 0,
+                },
             ],
             onChapterExit: [
             ],
@@ -45,6 +49,14 @@ let config = {
                 bearing: 0.00,
             },
             onChapterEnter: [
+                {
+                    layer: 'households-71kqvv',
+                    opacity: 0,
+                },
+                {
+                    layer: 'infected',
+                    opacity: 1,
+                },
             ],
             onChapterExit: [
             ]
