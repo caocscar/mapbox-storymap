@@ -81,6 +81,10 @@ let config = {
                     layer: 'groceries',
                     opacity: 0,
                 },
+                {
+                    layer: 'route',
+                    opacity: 0,
+                },
             ],
             onChapterExit: [
             ]
@@ -99,6 +103,10 @@ let config = {
             onChapterEnter: [
                 {
                     layer: 'groceries',
+                    opacity: 1,
+                },
+                {
+                    layer: 'route',
                     opacity: 1,
                 },
             ],
