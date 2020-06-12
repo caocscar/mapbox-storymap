@@ -238,8 +238,9 @@ map.on("load", function() {
     scroller
     .setup({
         step: '.step',
-        offset: 0.5,
-        progress: true
+        offset: 0.35,
+        progress: true,
+        debug: false,
     })
     .onStepEnter(response => {
         var chapter = config.chapters.find(chap => chap.id === response.element.id);
