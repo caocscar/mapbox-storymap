@@ -97,7 +97,7 @@
 <div id="story"></div>
 <script src="./config.js"></script>
 <script>
-var layerTypes = {
+let layerTypes = {
     'fill': ['fill-opacity'],
     'line': ['line-opacity'],
     'circle': ['circle-opacity', 'circle-stroke-opacity'],
@@ -106,7 +106,7 @@ var layerTypes = {
     'fill-extrusion': ['fill-extrusion-opacity']
 }
 
-var alignments = {
+let alignments = {
     'left': 'lefty',
     'center': 'centered',
     'right': 'righty'
@@ -216,43 +216,64 @@ var map = new mapboxgl.Map({
     scrollZoom: false,
 });
 
-// markers
-var marker = new mapboxgl.Marker();
-if (config.showMarkers) {
-    marker.setLngLat(config.chapters[0].location.center).addTo(map);
-}
-
 // instantiate the scrollama
-var scroller = scrollama();
+let scroller = scrollama();
 
 map.on("load", function() {
+    // set up household layer
+    map.addSource('households', {
+        type: 'vector',
+        url: 'mapbox://caoa.ckbccctkt00242bt4e87qyee9-9ufxl'
+    })
+    map.addLayer({
+        "id": "homes",
+        "type": "circle",
+        "source": "households",
+        "source-layer": "infected",
+        'paint': {
+            "circle-radius": 12,
+            "circle-color": "yellow",
+        }
+    })
+
     // setup the instance, pass callback functions
-    scroller
-    .setup({
+    scroller.setup({
         step: '.step',
         offset: 0.35,
-        progress: false,
         debug: false,
     })
     .onStepEnter(response => {
-        var chapter = config.chapters.find(chap => chap.id === response.element.id);
+        let idx = config.chapters.findIndex(chap => chap.id === response.element.id)
+        let chapter = config.chapters[idx];
         response.element.classList.add('active');
         map.flyTo(chapter.location);
-        if (config.showMarkers) {
-            marker.setLngLat(chapter.location.center);
+        if ([1,2].includes(idx)) {
+            map.setPaintProperty('homes', 'circle-color', idx === 1 ? 'yellow'
+                : ['match', ['get','status'],
+                    'infected', 'red',
+                    'yellow',
+                ]
+            )
+            map.setPaintProperty('homes', 'circle-radius', idx === 1 ? 12
+                : ['match', ['get','status'],
+                    'infected', 15,
+                    12,
+                ]
+            )
         }
-        if (chapter.onChapterEnter.length > 0) {
+        if (chapter.onChapterEnter) {
             chapter.onChapterEnter.forEach(setLayerOpacity);
         }
     })
     .onStepExit(response => {
-        var chapter = config.chapters.find(chap => chap.id === response.element.id);
+//        let chapter = config.chapters.find(chap => chap.id === response.element.id);
         response.element.classList.remove('active');
-        if (chapter.onChapterExit.length > 0) {
-            chapter.onChapterExit.forEach(setLayerOpacity);
-        }
+//        if (chapter.onChapterExit) {
+//            chapter.onChapterExit.forEach(setLayerOpacity);
+//        }
     });
 });
+
 
 // setup resize event
 window.addEventListener('resize', scroller.resize);

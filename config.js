@@ -1,7 +1,6 @@
 let config = {
     style: 'mapbox://styles/caoa/ckbcawzhd0c3g1ito303x9awr',
     accessToken: 'pk.eyJ1IjoiY2FvYSIsImEiOiJjazkxc2QyMTcwMHp4M2ZubnByeWwycjYwIn0.HMO_9ZdIJxTIXLl_zqyuHw',
-    showMarkers: false,
     theme: 'light',
     alignment: 'left',
     title: 'Epidemiology Explained by Nina',
@@ -25,16 +24,6 @@ let config = {
                     layer: 'hexagons-10km-seven-1iizx2',
                     opacity: 0.3,
                 },
-                {
-                    layer: 'households-71kqvv',
-                    opacity: 1,
-                },
-                {
-                    layer: 'infected',
-                    opacity: 0,
-                },
-            ],
-            onChapterExit: [
             ],
         },
         {
@@ -43,23 +32,11 @@ let config = {
             image: '',
             description: 'Here, one household has a coronavirus infection. For the purposes of this explanation, we are going to assume that when a household gets COVID, all members of the household get COVID. So here, we have 4 COVID cases.',
             location: {
-                center: [-83.25, 42.40],
+                center: [-83.19, 42.46],
                 zoom: 11.3,
                 pitch: 0.00,
                 bearing: 0.00,
             },
-            onChapterEnter: [
-                {
-                    layer: 'households-71kqvv',
-                    opacity: 0,
-                },
-                {
-                    layer: 'infected',
-                    opacity: 1,
-                },
-            ],
-            onChapterExit: [
-            ]
         },
         {
             id: 'three',
@@ -70,10 +47,6 @@ let config = {
                 center: [-83.20, 42.45],
                 zoom: 11.8,
             },
-            onChapterEnter: [
-            ],
-            onChapterExit: [                
-            ]
         },
         {
             id: 'four',
@@ -96,8 +69,6 @@ let config = {
                     opacity: 0,
                 },
             ],
-            onChapterExit: [
-            ]
         },
         {
             id: 'five',
@@ -119,8 +90,6 @@ let config = {
                     opacity: 1,
                 },
             ],
-            onChapterExit: [
-            ]
         },
         {
             id: 'six',
@@ -133,10 +102,6 @@ let config = {
                 pitch: 0.00,
                 bearing: 0.00,
             },
-            onChapterEnter: [
-            ],
-            onChapterExit: [
-            ]
         },
         {
             id: 'seven',
@@ -149,10 +114,6 @@ let config = {
                 pitch: 0.00,
                 bearing: 0.00,
             },
-            onChapterEnter: [
-            ],
-            onChapterExit: [
-            ]
         }
     ]
 };
